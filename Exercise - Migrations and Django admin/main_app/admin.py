@@ -1,4 +1,5 @@
 from django.contrib import admin
+from unfold.admin import ModelAdmin
 
 
 # Register your models here.
@@ -9,19 +10,19 @@ from .models import Supplier
 from .models import Course
 
 @admin.register(EventRegistration)
-class EventRegistrationAdmin(admin.ModelAdmin):
+class EventRegistrationAdmin(ModelAdmin):
     list_display = ["event_name", "participant_name", "registration_date"]
     list_filter = ["event_name", "registration_date"]
     search_fields = ["event_name", "participant_name"]
 
 @admin.register(Movie)
-class MovieAdmin(admin.ModelAdmin):
+class MovieAdmin(ModelAdmin):
     list_display = ["title", "director", "release_year", "genre"]
     list_filter = ["release_year", "genre"]
     search_fields = ["title", "director"]
 
 @admin.register(Student)
-class StudentAdmin(admin.ModelAdmin):
+class StudentAdmin(ModelAdmin):
     list_display = ["first_name", "last_name", "age", "grade"]
     list_filter = ["age", "grade", "date_of_birth"]
     search_fields = ["first_name"]
@@ -35,7 +36,7 @@ class StudentAdmin(admin.ModelAdmin):
     )
 
 @admin.register(Supplier)
-class SupplierAdmin(admin.ModelAdmin):
+class SupplierAdmin(ModelAdmin):
     list_display = ["name", "email", "phone"]
     list_filter = ["name", "phone"]
     search_fields = ["email", "contact_person", "phone"]
@@ -47,7 +48,7 @@ class SupplierAdmin(admin.ModelAdmin):
     )
 
 @admin.register(Course)
-class CourseAdmin(admin.ModelAdmin):
+class CourseAdmin(ModelAdmin):
     list_display = ["title", "lecturer", "price", "start_date"]
     list_filter = ["is_published", "lecturer"]
     search_fields = ["title", "lecturer"]
