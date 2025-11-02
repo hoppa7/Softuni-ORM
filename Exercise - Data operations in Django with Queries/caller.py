@@ -131,12 +131,15 @@ def fuse_characters(first_character: Character, second_character: Character):
         name=first_character.name + " " + second_character.name,
         class_name=FUSION_CLASS_NAME,
         level=(first_character.level + second_character.level) // 2,
-        strength=(first_character.intelligence + second_character.intelligence) * 1.2,
+        strength=(first_character.strength + second_character.strength) * 1.2,
         dexterity=(first_character.dexterity + second_character.dexterity) * 1.4,
         intelligence=(first_character.intelligence + second_character.intelligence) * 1.5,
         hit_points=(first_character.hit_points + second_character.hit_points),
         inventory=inventory,
     )
+
+    first_character.delete()
+    second_character.delete()
 
 def grand_dexterity():
     chars = Character.objects.all()
