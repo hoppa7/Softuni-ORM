@@ -7,8 +7,4 @@ django.setup()
 
 # Import your models here
 
-# Create queries within functions
-
-
-
-
+# Run and print your queries
