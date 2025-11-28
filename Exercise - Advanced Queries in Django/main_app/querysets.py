@@ -11,3 +11,10 @@ class RealEstateQuerySets(models.QuerySet):
 
     def with_bedrooms(self, bedrooms_count: int):
         return self.filter(bedrooms=bedrooms_count)
+
+class VideoGameQuerySets(models.QuerySet):
+    def games_by_genre(self, genre: str):
+        return self.filter(genre=genre)
+
+    def recently_released_games(self, year: int):
+        return self.filter(release_year__gte=year)
